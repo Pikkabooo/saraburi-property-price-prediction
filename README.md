@@ -72,11 +72,3 @@ If developed further with more data, the model would give a reference price from
 ## Next Steps
 
 Collect sold-house data from other second-hand real estate businesses in Saraburi to build a more accurate model.
-
-
-## Repository Structure
-
-```
-├── house_price_analysis.ipynb   # full analysis notebook (view-only)
-└── README.md
-```
