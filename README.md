@@ -4,6 +4,8 @@ A **proof-of-concept** project that predicts the sale price of second-hand house
 
 > **Status:** This is a proof of concept built on 37 sold houses from a single business. The project focuses on the analytical approach and the reasoning behind each methodological decision. The resulting numbers should not be used for real-world pricing decisions yet.
 
+**Full analysis:** [Notebook (view-only)](secondhand_house_price_analysis.ipynb)
+
 ## Motivation
 
 From talking with customers, price is the key factor in whether they decide to buy. A house that is priced correctly from the start attracts more interest and tends to sell faster. Some homeowners are unsure how much to ask for, and some set the price too high, which hurts the sale.
@@ -27,6 +29,10 @@ This project tries to turn the business owner's experience into a model that giv
 
 The model is not consistently accurate for every house, and 4 houses had errors above 30%.
 
+![Actual vs predicted sold prices from LOOCV](actual_predict.png)
+
+*Actual vs predicted sold prices for the 36 houses, where each house was predicted by a model that never saw it. Green points have an error of up to 20% and red points above 20%. Four houses fall outside the dashed lines, meaning their error is above 30%.*
+
 ## Data
 
 - **Source:** The business's Facebook posts advertising houses for sale.
@@ -36,7 +42,7 @@ The model is not consistently accurate for every house, and 4 houses had errors 
 
 ### This notebook is view-only
 
-The data is confidential business data and contains private information, so it is not published in this repository. Readers therefore cannot re-run the notebook, but all code, outputs, and charts are saved in the notebook and can be read in full. Columns containing private information are hidden in the notebook.
+The data comes from the business's real sales records and is confidential, so the raw data file is not included in this repository and the notebook cannot be re-run as is. To protect the business, columns that identify individual listings (house names, post IDs, links, and free-text descriptions) are hidden, and outputs that displayed individual records have been cleared. All other code, outputs, and charts are saved in the notebook and can be read in full, and all charts, results, and conclusions come from the original data.
 
 ## Approach
 
@@ -58,6 +64,16 @@ The data is confidential business data and contains private information, so it i
 - **Renovation shows no evidence of raising the price once condition is controlled for** (p = 0.636 in modelB). What relates to price is better condition. Renovation and condition score are correlated (r = 0.67), and removing the score makes renovation look significant (modelC, p = 0.001), which shows the two variables explain price in an overlapping way.
 - Renovated and non-renovated houses with the same score can be compared at only 2 score levels (3.5 and 5.0), so no firm conclusion can be drawn yet.
 
+### Condition score, renovation, and price
+
+![Scatter plot by renovation status](score_price_renovated.png)
+
+*Renovated houses (True) cluster at high condition scores, while non-renovated houses (False) span the full range. In both groups, price tends to rise with condition score, and the trend is clearer for non-renovated houses.*
+
+![Condition score vs sold price](score_price.png)
+
+*Both groups on the same axes. Only two score levels (3.5 and 5.0) contain both renovated and non-renovated houses, and houses with the same score vary widely in price.*
+
 ## Scope and Limitations
 
 - Only 37 houses from one business, so results are preliminary.
@@ -72,3 +88,7 @@ If developed further with more data, the model would give a reference price from
 ## Next Steps
 
 Collect sold-house data from other second-hand real estate businesses in Saraburi to build a more accurate model.
+
+## Tech Stack
+
+Python, pandas, NumPy, scikit-learn, statsmodels, matplotlib, seaborn. Developed in Google Colab.
