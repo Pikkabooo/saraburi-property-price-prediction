@@ -4,7 +4,7 @@ A **proof-of-concept** project that predicts the sale price of second-hand house
 
 > **Status:** This is a proof of concept built on 37 sold houses from a single business. The project focuses on the analytical approach and the reasoning behind each methodological decision. The resulting numbers should not be used for real-world pricing decisions yet.
 
-**Full analysis:** [Notebook (view-only)](secondhand_house_price_analysis.ipynb)
+**Full analysis:** [Notebook (view-only)](secondhand_house_price_analysis.ipynb) | [Notebook Thai version](secondhand_house_price_analysis_thaiver.ipynb)
 
 ## Motivation
 
